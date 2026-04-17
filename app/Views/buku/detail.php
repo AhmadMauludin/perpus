@@ -47,6 +47,24 @@
         <td>Deskripsi</td>
         <td><?= $buku['deskripsi'] ?></td>
     </tr>
+    <tr>
+        <td>Cover</td>
+        <td>
+            <?php if ($buku['cover']): ?>
+
+                <?php $ext = pathinfo($buku['cover'], PATHINFO_EXTENSION); ?>
+
+                <?php if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])): ?>
+                    <img src="<?= base_url('uploads/buku/' . $buku['cover']) ?>" width="150">
+                <?php else: ?>
+                    <a href="<?= base_url('uploads/buku/' . $buku['cover']) ?>" target="_blank">Lihat File</a>
+                <?php endif; ?>
+
+            <?php else: ?>
+                -
+            <?php endif; ?>
+        </td>
+    </tr>
 </table>
 
 <br>

@@ -2,7 +2,7 @@
 <?= $this->section('content') ?>
 <h3>Tambah Buku</h3>
 
-<form method="post" action="<?= base_url('buku/store') ?>">
+<form method="post" action="<?= base_url('buku/store') ?>" enctype="multipart/form-data">
 
     Judul:<br>
     <input type="text" name="judul"><br><br>
@@ -55,6 +55,9 @@
 
     Deskripsi:<br>
     <textarea name="deskripsi"></textarea><br><br>
+
+    Cover / file :<br>
+    <input type="file" name="cover"><br><br>
 
     <button type="submit">Simpan</button>
     <a href="<?= base_url('buku') ?>">Kembali</a>

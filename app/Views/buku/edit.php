@@ -2,7 +2,7 @@
 <?= $this->section('content') ?>
 <h3>Edit Buku</h3>
 
-<form method="post" action="<?= base_url('buku/update/' . $buku['id_buku']) ?>">
+<form method="post" action="<?= base_url('buku/update/' . $buku['id_buku']) ?>" enctype="multipart/form-data">
 
     Judul:<br>
     <input type="text" name="judul" value="<?= $buku['judul'] ?>"><br><br>
@@ -60,6 +60,26 @@
 
     Deskripsi:<br>
     <textarea name="deskripsi"><?= $buku['deskripsi'] ?></textarea><br><br>
+
+    Cover:<br>
+    <input type="file" name="cover"><br><br>
+
+    Cover Saat Ini:<br>
+    <?php if ($buku['cover']): ?>
+
+        <?php
+        $ext = pathinfo($buku['cover'], PATHINFO_EXTENSION);
+        ?>
+
+        <?php if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])): ?>
+            <img src="<?= base_url('uploads/buku/' . $buku['cover']) ?>" width="100"><br>
+        <?php else: ?>
+            <a href="<?= base_url('uploads/buku/' . $buku['cover']) ?>" target="_blank">Lihat File</a><br>
+        <?php endif; ?>
+
+    <?php else: ?>
+        -
+    <?php endif; ?>
 
     <button type="submit">Update</button>
     <a href="<?= base_url('buku') ?>">Kembali</a>

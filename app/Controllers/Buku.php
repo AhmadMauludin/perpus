@@ -55,7 +55,26 @@ class Buku extends BaseController
 
     public function store()
     {
+        // VALIDASI
+        $rules = [
+            'judul' => 'required',
+            'cover' => 'max_size[cover,2048]|ext_in[cover,jpg,jpeg,png,pdf]'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('error', 'Validasi gagal');
+        }
+
         $data = $this->request->getPost();
+
+        // HANDLE UPLOAD COVER
+        $file = $this->request->getFile('cover');
+
+        if ($file && $file->isValid() && !$file->hasMoved()) {
+            $namaFile = $file->getRandomName();
+            $file->move('uploads/buku/', $namaFile);
+            $data['cover'] = $namaFile;
+        }
 
         $this->buku->insert($data);
         $id_buku = $this->buku->getInsertID();
@@ -104,7 +123,33 @@ class Buku extends BaseController
 
     public function update($id)
     {
+
+        $rules = [
+            'judul' => 'required',
+            'cover' => 'max_size[cover,2048]|ext_in[cover,jpg,jpeg,png,pdf]'
+        ];
+
+        if (!$this->validate($rules)) {
+            return redirect()->back()->withInput()->with('error', 'Validasi gagal');
+        }
         $data = $this->request->getPost();
+
+        $file = $this->request->getFile('cover');
+
+        if ($file && $file->isValid() && !$file->hasMoved()) {
+
+            // hapus file lama
+            $buku = $this->buku->find($id);
+            if ($buku['cover'] && file_exists('uploads/buku/' . $buku['cover'])) {
+                unlink('uploads/buku/' . $buku['cover']);
+            }
+
+            // upload baru
+            $namaFile = $file->getRandomName();
+            $file->move('uploads/buku/', $namaFile);
+
+            $data['cover'] = $namaFile;
+        }
 
         $this->buku->update($id, $data);
 
@@ -117,7 +162,14 @@ class Buku extends BaseController
 
     public function delete($id)
     {
+        $buku = $this->buku->find($id);
+
+        if ($buku['cover'] && file_exists('uploads/buku/' . $buku['cover'])) {
+            unlink('uploads/buku/' . $buku['cover']);
+        }
+
         $this->buku->delete($id);
+
         return redirect()->to('/buku');
     }
 

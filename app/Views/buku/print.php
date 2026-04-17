@@ -18,6 +18,7 @@
             <th>Penerbit</th>
             <th>Tahun</th>
             <th>Jumlah</th>
+            <th>Cover</th>
         </tr>
 
         <?php $no = 1;
@@ -30,6 +31,13 @@
                 <td><?= $b['nama_penerbit'] ?></td>
                 <td><?= $b['tahun_terbit'] ?></td>
                 <td><?= $b['jumlah'] ?></td>
+                <td>
+                    <?php if ($b['cover']): ?>
+                        <?= $b['cover'] ?>
+                    <?php else: ?>
+                        -
+                    <?php endif; ?>
+                </td>
             </tr>
         <?php endforeach; ?>
 
