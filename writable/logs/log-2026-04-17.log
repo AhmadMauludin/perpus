@@ -1,0 +1,257 @@
+DEBUG - 2026-04-17 02:39:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:39:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:40:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:40:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:40:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:40:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-17 02:40:37 --> mysqli_sql_exception: Table 'perpus.buku' doesn't exist in C:\xampp\htdocs\perpus\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\perpus\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `buku`.*...', 0)
+#1 C:\xampp\htdocs\perpus\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*...')
+#2 C:\xampp\htdocs\perpus\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*...')
+#3 C:\xampp\htdocs\perpus\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*...', Array, false)
+#4 C:\xampp\htdocs\perpus\app\Controllers\Buku.php(41): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\perpus\system\CodeIgniter.php(933): App\Controllers\Buku->index()
+#6 C:\xampp\htdocs\perpus\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#7 C:\xampp\htdocs\perpus\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\perpus\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\perpus\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\perpus\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-17 02:40:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'perpus.buku' doesn't exist
+[Method: GET, Route: buku]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`', [], false)
+ 2 APPPATH\Controllers\Buku.php(41): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-17 02:40:37 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'perpus.buku' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`', [], false)
+ 4 APPPATH\Controllers\Buku.php(41): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-17 02:40:37 --> [Caused by] mysqli_sql_exception: Table 'perpus.buku' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `buku`.*, `kategori`.`nama_kategori`, `penulis`.`nama_penulis`, `penerbit`.`nama_penerbit`, `rak`.`nama_rak`, `rak`.`lokasi`
+FROM `buku`
+LEFT JOIN `kategori` ON `kategori`.`id_kategori` = `buku`.`id_kategori`
+LEFT JOIN `penulis` ON `penulis`.`id_penulis` = `buku`.`id_penulis`
+LEFT JOIN `penerbit` ON `penerbit`.`id_penerbit` = `buku`.`id_penerbit`
+LEFT JOIN `buku_rak` ON `buku_rak`.`id_buku` = `buku`.`id_buku`
+LEFT JOIN `rak` ON `rak`.`id_rak` = `buku_rak`.`id_rak`', [], false)
+ 5 APPPATH\Controllers\Buku.php(41): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-17 02:40:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:43:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:43:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:43:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:43:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:43:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:43:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:43:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:44:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:47:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:47:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:47:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:47:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:48:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:48:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:48:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:49:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:49:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:50:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:50:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:50:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:52:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:53:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:55:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:55:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:55:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:56:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 02:56:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:01:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:01:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:01:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:02:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-17 03:06:50 --> ErrorException: Undefined array key "alamat_penerbit"
+[Method: GET, Route: buku]
+in APPPATH\Views\buku\index.php on line 35.
+ 1 APPPATH\Views\buku\index.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "alamat_penerbit"', 'C:\\xampp\\htdocs\\perpus\\app\\Views\\buku\\index.php', 35)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus\\app\\Views\\buku\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('buku/index', [], true)
+ 5 APPPATH\Controllers\Buku.php(43): view('buku/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-17 03:07:15 --> ErrorException: Undefined array key "alamat"
+[Method: GET, Route: buku]
+in APPPATH\Views\buku\index.php on line 35.
+ 1 APPPATH\Views\buku\index.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "alamat"', 'C:\\xampp\\htdocs\\perpus\\app\\Views\\buku\\index.php', 35)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus\\app\\Views\\buku\\index.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('buku/index', [], true)
+ 5 APPPATH\Controllers\Buku.php(43): view('buku/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-17 03:07:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:08:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:08:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:10:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:10:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:10:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:10:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:10:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:11:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:11:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:11:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:11:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:12:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:12:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:26:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-17 03:26:31 --> ErrorException: Undefined variable $kategori
+[Method: GET, Route: buku/create]
+in APPPATH\Views\buku\create.php on line 16.
+ 1 APPPATH\Views\buku\create.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kategori', 'C:\\xampp\\htdocs\\perpus\\app\\Views\\buku\\create.php', 16)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\perpus\\app\\Views\\buku\\create.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('buku/create', [], true)
+ 5 APPPATH\Controllers\Buku.php(53): view('buku/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->create()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-17 03:29:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-17 03:30:25 --> mysqli_sql_exception: Table 'pustaka.kategor' doesn't exist in C:\xampp\htdocs\perpus\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\perpus\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\perpus\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\perpus\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\perpus\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\perpus\app\Controllers\Buku.php(48): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\perpus\system\CodeIgniter.php(933): App\Controllers\Buku->create()
+#6 C:\xampp\htdocs\perpus\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+#7 C:\xampp\htdocs\perpus\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\perpus\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\perpus\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\perpus\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2026-04-17 03:30:25 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'pustaka.kategor' doesn't exist
+[Method: GET, Route: buku/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `kategor`', [], false)
+ 2 APPPATH\Controllers\Buku.php(48): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->create()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-17 03:30:25 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'pustaka.kategor' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `kategor`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `kategor`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `kategor`', [], false)
+ 4 APPPATH\Controllers\Buku.php(48): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-17 03:30:25 --> [Caused by] mysqli_sql_exception: Table 'pustaka.kategor' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `kategor`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `kategor`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `kategor`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `kategor`', [], false)
+ 5 APPPATH\Controllers\Buku.php(48): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Buku->create()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Buku))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-17 03:30:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:34:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:35:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-17 03:35:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
