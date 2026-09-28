@@ -1,5 +1,26 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
+<?php
+$buku = isset($buku) ? $buku : [
+    'id_buku' => '',
+    'judul' => '',
+    'isbn' => '',
+    'id_kategori' => '',
+    'id_penulis' => '',
+    'id_penerbit' => '',
+    'id_rak' => '',
+    'tahun_terbit' => '',
+    'jumlah' => '',
+    'tersedia' => '',
+    'deskripsi' => '',
+    'cover' => '',
+];
+
+$kategori = $kategori ?? [];
+$penulis = $penulis ?? [];
+$penerbit = $penerbit ?? [];
+$rak = $rak ?? [];
+?>
 <h3>Edit Buku</h3>
 
 <form method="post" action="<?= base_url('buku/update/' . $buku['id_buku']) ?>" enctype="multipart/form-data">
@@ -43,7 +64,7 @@
     Rak:<br>
     <select name="id_rak">
         <?php foreach ($rak as $r): ?>
-            <option value="<?= $r['id_rak'] ?>">
+            <option value="<?= $r['id_rak'] ?>" <?= $buku['id_rak'] == $r['id_rak'] ? 'selected' : '' ?>>
                 <?= $r['nama_rak'] ?> - <?= $r['lokasi'] ?>
             </option>
         <?php endforeach; ?>
