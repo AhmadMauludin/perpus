@@ -26,7 +26,7 @@
         <th>Aksi</th>
     </tr>
 
-    <?php foreach ($buku as $b): ?>
+    <?php foreach (($buku ?? []) as $b): ?>
         <tr>
             <td><?= $b['id_buku'] ?></td>
             <td><?= $b['isbn'] ?></td>
