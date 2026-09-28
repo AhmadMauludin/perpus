@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `anggota` (
-  `id_anggota` int(11) NOT NULL,
+  `id_anggota` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `nis` varchar(20) DEFAULT NULL,
   `alamat` text DEFAULT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE `anggota` (
 --
 
 CREATE TABLE `buku` (
-  `id_buku` int(11) NOT NULL,
+  `id_buku` int(11) NOT NULL AUTO_INCREMENT,
   `isbn` varchar(50) DEFAULT NULL,
   `judul` varchar(255) DEFAULT NULL,
   `id_kategori` int(11) DEFAULT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE `buku` (
 --
 
 CREATE TABLE `buku_rak` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_buku` int(11) DEFAULT NULL,
   `id_rak` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -75,7 +75,7 @@ CREATE TABLE `buku_rak` (
 --
 
 CREATE TABLE `denda` (
-  `id_denda` int(11) NOT NULL,
+  `id_denda` int(11) NOT NULL AUTO_INCREMENT,
   `id_pengembalian` int(11) DEFAULT NULL,
   `jumlah_denda` decimal(10,2) DEFAULT NULL,
   `status` enum('belum_bayar','sudah_bayar') DEFAULT 'belum_bayar'
@@ -88,7 +88,7 @@ CREATE TABLE `denda` (
 --
 
 CREATE TABLE `detail_peminjaman` (
-  `id_detail` int(11) NOT NULL,
+  `id_detail` int(11) NOT NULL AUTO_INCREMENT,
   `id_peminjaman` int(11) DEFAULT NULL,
   `id_buku` int(11) DEFAULT NULL,
   `jumlah` int(11) DEFAULT NULL
@@ -101,7 +101,7 @@ CREATE TABLE `detail_peminjaman` (
 --
 
 CREATE TABLE `kategori` (
-  `id_kategori` int(11) NOT NULL,
+  `id_kategori` int(11) NOT NULL AUTO_INCREMENT,
   `nama_kategori` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -112,7 +112,7 @@ CREATE TABLE `kategori` (
 --
 
 CREATE TABLE `log_aktivitas` (
-  `id_log` int(11) NOT NULL,
+  `id_log` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `aktivitas` text DEFAULT NULL,
   `waktu` timestamp NOT NULL DEFAULT current_timestamp()
@@ -125,7 +125,7 @@ CREATE TABLE `log_aktivitas` (
 --
 
 CREATE TABLE `peminjaman` (
-  `id_peminjaman` int(11) NOT NULL,
+  `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT,
   `id_anggota` int(11) DEFAULT NULL,
   `id_petugas` int(11) DEFAULT NULL,
   `tanggal_pinjam` date DEFAULT NULL,
@@ -140,7 +140,7 @@ CREATE TABLE `peminjaman` (
 --
 
 CREATE TABLE `penarikan` (
-  `id_penarikan` int(11) NOT NULL,
+  `id_penarikan` int(11) NOT NULL AUTO_INCREMENT,
   `id_peminjaman` int(11) DEFAULT NULL,
   `alamat` text DEFAULT NULL,
   `biaya` decimal(10,2) DEFAULT NULL,
@@ -156,7 +156,7 @@ CREATE TABLE `penarikan` (
 --
 
 CREATE TABLE `penerbit` (
-  `id_penerbit` int(11) NOT NULL,
+  `id_penerbit` int(11) NOT NULL AUTO_INCREMENT,
   `nama_penerbit` varchar(100) DEFAULT NULL,
   `alamat` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -168,7 +168,7 @@ CREATE TABLE `penerbit` (
 --
 
 CREATE TABLE `pengaturan` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama_aplikasi` varchar(100) DEFAULT NULL,
   `denda_per_hari` decimal(10,2) DEFAULT NULL,
   `maksimal_pinjam` int(11) DEFAULT NULL,
@@ -189,7 +189,7 @@ INSERT INTO `pengaturan` (`id`, `nama_aplikasi`, `denda_per_hari`, `maksimal_pin
 --
 
 CREATE TABLE `pengembalian` (
-  `id_pengembalian` int(11) NOT NULL,
+  `id_pengembalian` int(11) NOT NULL AUTO_INCREMENT,
   `id_peminjaman` int(11) DEFAULT NULL,
   `tanggal_dikembalikan` date DEFAULT NULL,
   `denda` decimal(10,2) DEFAULT 0.00
@@ -202,7 +202,7 @@ CREATE TABLE `pengembalian` (
 --
 
 CREATE TABLE `pengiriman` (
-  `id_pengiriman` int(11) NOT NULL,
+  `id_pengiriman` int(11) NOT NULL AUTO_INCREMENT,
   `id_peminjaman` int(11) DEFAULT NULL,
   `alamat` text DEFAULT NULL,
   `biaya` decimal(10,2) DEFAULT NULL,
@@ -218,7 +218,7 @@ CREATE TABLE `pengiriman` (
 --
 
 CREATE TABLE `penulis` (
-  `id_penulis` int(11) NOT NULL,
+  `id_penulis` int(11) NOT NULL AUTO_INCREMENT,
   `nama_penulis` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -229,7 +229,7 @@ CREATE TABLE `penulis` (
 --
 
 CREATE TABLE `petugas` (
-  `id_petugas` int(11) NOT NULL,
+  `id_petugas` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `jabatan` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -241,7 +241,7 @@ CREATE TABLE `petugas` (
 --
 
 CREATE TABLE `rak` (
-  `id_rak` int(11) NOT NULL,
+  `id_rak` int(11) NOT NULL AUTO_INCREMENT,
   `nama_rak` varchar(50) DEFAULT NULL,
   `lokasi` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -253,7 +253,7 @@ CREATE TABLE `rak` (
 --
 
 CREATE TABLE `reservasi` (
-  `id_reservasi` int(11) NOT NULL,
+  `id_reservasi` int(11) NOT NULL AUTO_INCREMENT,
   `id_anggota` int(11) DEFAULT NULL,
   `id_buku` int(11) DEFAULT NULL,
   `tanggal_reservasi` date DEFAULT NULL,
@@ -267,7 +267,7 @@ CREATE TABLE `reservasi` (
 --
 
 CREATE TABLE `transaksi` (
-  `id_transaksi` int(11) NOT NULL,
+  `id_transaksi` int(11) NOT NULL AUTO_INCREMENT,
   `id_peminjaman` int(11) DEFAULT NULL,
   `jenis` enum('denda','pengiriman','penarikan') DEFAULT NULL,
   `jumlah` decimal(10,2) DEFAULT NULL,
@@ -282,7 +282,7 @@ CREATE TABLE `transaksi` (
 --
 
 CREATE TABLE `ulasan` (
-  `id_ulasan` int(11) NOT NULL,
+  `id_ulasan` int(11) NOT NULL AUTO_INCREMENT,
   `id_buku` int(11) DEFAULT NULL,
   `id_anggota` int(11) DEFAULT NULL,
   `rating` int(11) DEFAULT NULL,
