@@ -296,7 +296,7 @@ CREATE TABLE `ulasan` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) auto_increment NOT NULL,
   `nama` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
@@ -312,7 +312,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `nama`, `email`, `username`, `password`, `role`, `foto`, `status`, `created_at`) VALUES
+INSERT IGNORE INTO `users` (`id`, `nama`, `email`, `username`, `password`, `role`, `foto`, `status`, `created_at`) VALUES
 (1, 'Ahmad Mauludin', 'ahmadmauludin1799@gmail.com', 'ahmadmauludin', '$2y$10$uMC9mIL95blgeqs1lboR4OQOXhtkuITEmVbWzNvg/.yqJ1umW4z2q', 'admin', 'ahmadmauludin.jpg', 'aktif', '2026-04-10 15:31:04'),
 (2, 'Saheela Meera', 'saheelameera@gmail.com', 'saheelameera', '$2y$10$CzpE9nQfha17SouLoDYBa.rTs2d7ojsGtdZbHIBZBAzBtP5GBRj6O', 'petugas', 'saheelameera.jpg', 'aktif', '2026-04-10 15:32:38'),
 (3, 'Maldin Ahmadi', 'maldinahmadi@gmail.com', 'maldinahmadi', '$2y$10$FPpcAMkG0LmfaDpgKjXECuVWJvrMN8GJvDDJcecH8mfdDlKp19nq2', 'anggota', 'maldinahmadi.jpg', 'aktif', '2026-04-10 15:35:01');
