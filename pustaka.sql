@@ -297,7 +297,7 @@ CREATE TABLE `ulasan` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int(11) auto_increment NOT NULL,
   `nama` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
