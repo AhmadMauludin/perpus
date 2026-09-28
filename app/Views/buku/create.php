@@ -13,7 +13,7 @@
     Kategori:<br>
     <select name="id_kategori">
         <option value="">Pilih</option>
-        <?php foreach ($kategori as $k): ?>
+        <?php foreach (($kategori ?? []) as $k): ?>
             <option value="<?= $k['id_kategori'] ?>"><?= $k['nama_kategori'] ?></option>
         <?php endforeach; ?>
     </select><br><br>
@@ -21,7 +21,7 @@
     Penulis:<br>
     <select name="id_penulis">
         <option value="">Pilih</option>
-        <?php foreach ($penulis as $p): ?>
+        <?php foreach (($penulis ?? []) as $p): ?>
             <option value="<?= $p['id_penulis'] ?>"><?= $p['nama_penulis'] ?></option>
         <?php endforeach; ?>
     </select><br><br>
@@ -29,7 +29,7 @@
     Penerbit:<br>
     <select name="id_penerbit">
         <option value="">Pilih</option>
-        <?php foreach ($penerbit as $p): ?>
+        <?php foreach (($penerbit ?? []) as $p): ?>
             <option value="<?= $p['id_penerbit'] ?>"><?= $p['nama_penerbit'] ?></option>
         <?php endforeach; ?>
     </select><br><br>
@@ -37,7 +37,7 @@
     Rak:<br>
     <select name="id_rak">
         <option value="">Pilih</option>
-        <?php foreach ($rak as $r): ?>
+        <?php foreach (($rak ?? []) as $r): ?>
             <option value="<?= $r['id_rak'] ?>">
                 <?= $r['nama_rak'] ?> - <?= $r['lokasi'] ?>
             </option>
